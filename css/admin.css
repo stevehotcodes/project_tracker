@@ -36,6 +36,9 @@ font: weight 700px; ;
     justify-content: space-between;
     align-items: center;
 }
+.all-users{
+    display: none;
+}
 .each-user img{
     width: 1.5rem;
     height:1.5rem;
@@ -85,16 +88,13 @@ font: weight 700px; ;
     left: 0;
     height: 100%;
     width: 100%;
-    display: grid;
-    place-items: center;
     display: none;
-
 }
 .modal-container{
     border: #2A2976 2px solid;
     background:white;
-    display: grid;
-    place-items: center;
+    width: 50%;
+    height: 80vh;
 }
 .modal{
     display: flex;
