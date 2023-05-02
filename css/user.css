@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 
+
 }
 .navigation {
     background-color: black;
@@ -226,8 +227,11 @@ color: #2A2976;
   padding: 10px 0;
   background: transparent;
   font-size: 2em;
-  color: #fff;
+  color: black;
   transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .input-label{
   display: flex;
@@ -256,4 +260,19 @@ color: #2A2976;
   top: 0;
   font-size: 1 em;
   color: #ef5a03; 
+}
+.input_field img{
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+.alldone{
+ position: absolute;
+width: 286px;
+height: 46px;
+margin: 100px;
+background: #2A2976;
+border-radius: 10px;
+cursor: pointer;
+color: #fff;
 }
