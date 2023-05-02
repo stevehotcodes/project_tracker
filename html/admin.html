@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <h2 style="color: #2A2976;">Admin Dashboard</h2>
+        <div class="logout">
+            <button id="bt-logout">LOGOUT</button>
+            <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="users">
+            <div class="users-title">
+                <h4>Users</h4>
+                <ion-icon name="chevron-down-outline" id="show-user"></ion-icon>
+            </div> 
+            <div class="all-users">
+                <div class="each-user">
+                    <div class="img-name">
+                        <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">
+                        <p>User Name</p>
+                    </div>
+                    
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+                <div class="each-user">
+                    <div class="img-name">
+                        <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">
+                        <p>User Name</p>
+                    </div>
+                    
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+                <div class="each-user">
+                    <div class="img-name">
+                        <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">
+                        <p>User Name</p>
+                    </div>
+                    
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+                <div class="each-user">
+                    <div class="img-name">
+                        <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">
+                        <p>User Name</p>
+                    </div>
+                    
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="projects">
+            <div class="projects-title">
+                <h3>Projects</h3>
+                <ion-icon id="add-project-bt" name="add-circle" style= "font-size: 44px; color: #2A2976;" ></ion-icon>
+            </div>
+            <div class="projects-nav">
+                <h4>Project Name</h4>
+                <h4>User</h4>
+                <h4>Status</h4>
+                <h4>Action</h4>
+                <p style="visibility: hidden;">Hidden</p>
+            </div>
+            <div class="projects-list">
+                <div class="each-project">
+                    <p>Project Name</p>
+                    <p>User Name</p>
+                    <p>In Progress</p>
+                    <button id="update-bt">UPDATE</button>
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+                <div class="each-project">
+                    <p>Project Name</p>
+                    <p>User Name</p>
+                    <p>In Progress</p>
+                    <button id="update-bt">UPDATE</button>
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+                <div class="each-project">
+                    <p>Project Name</p>
+                    <p>User Name</p>
+                    <p>In Progress</p>
+                    <button id="update-bt">UPDATE</button>
+                    <ion-icon name="trash-outline" style = "color: red"></ion-icon>
+                </div>
+            </div>
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal">
+                        <p id="close">X</p>
+                            <h2>Project Details Form</h2>
+                        
+                        
+                        <label for="project-name">Project Name:</label>
+                        <input type="text" name="project-name" id="project-name" placeholder="Enter Project Name">
+                        <label for="user-name">User Assigned:</label>
+                        <select name = "user-name" id="user-name">
+                            <option value = "none">...</option>
+                            <option value = "User 1">User 1</option>
+                            <option value = "User 2">User 2</option>
+                            <option value = "User3">User 3</option>
+                         </select>
+                         <button id="project-details">SUBMIT</button>
+                    </div>
+                  </div> 
+            </div>
+               
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="../admin-js/dist/admin.js"></script>
+</body>
+</html>
