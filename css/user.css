@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.navigation {
+    background-color: black;
+    margin-right: 40px;
+  }
+.img img {
+    width: 25px;
+    border-radius: 50px;
+    float: left;
+  }
+  
+  .logout {
+    font-size: .65em;
+    position: relative;
+    right: -1px;
+    bottom: -4px;
+    overflow: hidden;
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity .45s;
+    -webkit-transition: opacity .35s;
+    
+  }
+  
+  .button {
+    text-decoration: none;
+    float: right;
+    padding: 8px;
+    margin: 10px;
+    color: white;
+    width: 10px;
+    background-color: black;
+    transition: width .35s;
+    -webkit-transition: width .35s;
+    overflow: hidden
+  }
+  
+  a:hover {
+    width: 100px;
+  }
+  
+  a:hover .logout{
+    opacity: .9;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+    
+ 
+.navigation_1{
+    width:100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user-dashboard-title{
+    width:286px;
+    height:60px;
+    display: flex;
+}
+.user-dashboard-title>h1{
+ text-align: center;
+ color: rgb(85, 50, 117);
+ padding-left: 20px;
+}
+.card{
+    box-sizing: border-box;
+    border: 2px solid #2A2976;
+    width: 900px;
+   height: 820px;
+    margin-top: 40px;
+    margin-left: 52px;
+    background: #FFFFFF;
+    border: 2px solid #2A2976;
+    border-radius: 20px;
+    display: flex;
+  
+}
+.user_profile{
+    width: 800px;
+    height: 300px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 20px;
+    align-content: center;
+    justify-content: center;
+}
+.user_image{
+     margin: 70px;
+}
+.user_image img{
+    border-radius: 50px;
+    width: 150px;
+    cursor: pointer;
+}
+.username{
+    margin: 46px;
+}
+.project{
+position: absolute;
+width: 533px;
+height: 296px;
+left: 117px;
+top: 553.5px;
+background: rgb(245, 240, 240);
+border-radius: 20px;
+margin-left: 70px;
+}
+.project_description{
+     margin: 70px;
+     padding: 20px;
+}
+.project_name{
+position: absolute;
+width: 100px;
+height: 100px;
+left: 339px;
+top: 464px;
+
+}
+.project_task{
+  margin-left: 10px;
+  box-sizing: border-box;
+    width: 900px;
+   height: 820px;
+    margin-top: 40px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    display: flex;
+  flex-wrap: wrap;
+
+}
+.content{
+    margin: 20px;
+     display: flex;
+     
+}
+.project_task{
+  display: flex;
+  justify-content: center;
+}
+.task_name{
+    margin: 200px;
+    padding: 20px;
+}
+.task_name h1{
+height: 51px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 29px;
+letter-spacing: -0.017em;
+text-decoration-line: underline;
+color: #2A2976;
+}
+.text_input{
+     width: 600px;
+     position: relative;
+     flex-wrap: wrap;
+}
+
+.input-field{
+    width: 585px;
+    outline: 0;
+    height: 50px;
+    background: #FFFFFF;
+    border: 2px solid #2A2976;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    margin-top: -100px;
+}
+.input-field::placeholder{
+  color: #0e0e11;
+}
+.icon{
+  position: relative;
+  left: 550px;
+  top: -65px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.6em;
+}
+.input-field:focus{
+  color: #1a1818;
+  border: 2px solid #2A2976;
+}
+.input-field:focus .icon{
+  color: #fff;
+
+}
+.icon img{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.field_group{
+  width: 600px;
+  position: relative;
+  padding-top: 15px;
+}
+.input-label img{
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 600px;
+}
+.input_field{
+  width: 100%;
+  outline: 0;
+  border: 0;
+  border-bottom: 2px solid #1a1818;
+  padding: 10px 0;
+  background: transparent;
+  font-size: 2em;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.input-label{
+  display: flex;
+  position: absolute;
+  top: 0;
+  font-size: 1em;
+  color: #1a1818;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  padding-bottom: 400px;
+}
+.input_field::placeholder{
+  color: transparent;
+}
+.input_field::placeholder-shown ~ .input-label{
+  font-size: 2em;
+  top: 20px;
+}
+.input_field:focus{
+  border-image:linear-gradient(to right, #ef5a03, #d1d357) ;
+  border-image-slice:1 ;
+}
+.input_field:focus ~ .input-label{
+  display: block;
+  position: absolute;
+  top: 0;
+  font-size: 1 em;
+  color: #ef5a03; 
+}
