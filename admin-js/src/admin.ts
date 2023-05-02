@@ -1,7 +1,7 @@
 const addProjectBt = document.getElementById("add-project-bt") as HTMLElement
 addProjectBt.addEventListener("click", openModal)
 
-const closeModalBt =  document.getElementById("close") as HTMLParagraphElement
+const closeModalBt =  document.getElementById("close") as HTMLSpanElement
 closeModalBt.addEventListener("click", closeModal)
 
 const users = document.querySelector(".all-users") as HTMLDivElement
