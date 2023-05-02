@@ -2,13 +2,20 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .nav-bar{
     border-bottom: 1px solid #D9D9D9;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.7rem;
-    
+    width: 80%;
+        
 }
 .logout{
     display: flex;
@@ -29,39 +36,45 @@ font: weight 700px; ;
 .container{
     display: grid;
     grid-template-columns: 25% 75%;
+    justify-content:space-evenly ;
+    width: 80%;
+    gap: 2rem;
 }
-.users-title, .each-user{
-    padding: 1rem 2.7rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+ .each-user{
+    /* border-bottom:1px #f5f5f5 solid; */
 }
-.all-users{
-    display: none;
-}
+
 .each-user img{
     width: 1.5rem;
     height:1.5rem;
     border-radius: 50%;
+}
+.users{
+    border-right: #D9D9D9 1px solid;
+    background-color: #2A2976;
+    color: white;
+    border-radius: 10px;
+    margin-top: 2rem;
 }
 .img-name{
     display: flex;
     align-items: center;
     gap: .4rem;
 }
-.projects-title{
+.users-title, .projects-title{
     width: 79%;
     padding: 1rem ;
     display: flex;
     justify-content: space-between;
     align-items: center
 }
+
 .projects-nav{
     background-color: #F6F2F2;
     color: #2A2976;
     
 }   
-.each-project, .projects-nav{
+.each-project, .projects-nav, .each-user{
     
     display: flex;
     justify-content: space-between;
@@ -71,6 +84,7 @@ font: weight 700px; ;
 }
 .each-project{
     border-bottom: #D9D9D9 1px solid;
+    box-shadow: 2px 2px #f5f5f5;
 }
 
 #update-bt{
@@ -91,10 +105,11 @@ font: weight 700px; ;
     display: none;
 }
 .modal-container{
-    border: #2A2976 2px solid;
-    background:white;
+    /* border: #2A2976 2px solid; */
+    background-color:#f5f5f5;
     width: 50%;
-    height: 80vh;
+    /* height: 60vh; */
+    border-radius: 10px;
 }
 .modal{
     display: flex;
@@ -103,10 +118,14 @@ font: weight 700px; ;
     padding: 3rem;
 }
 #close{
-    position: relative;
-    left: 90%;
-    top: 0;
     cursor: pointer;
+    border: #2A2976 1px solid;
+    padding: .2rem .5rem;
+    color: #2A2976;
+}
+#close:hover{
+    background-color: #2A2976;
+    color: white;
 }
 #project-details{
     border-style: none;
@@ -114,10 +133,23 @@ font: weight 700px; ;
     color: white;
     font-weight: 700;
     cursor: pointer;
+   
 }
 
 
-#project-details, #project-name, #user-name{
+#project-details, #project-name, #user-name, #project-desc{
     padding: .4rem ;
     cursor: pointer;
+    /* border-radius: 20px; */
+}
+#project-name, #user-name, #project-desc{
+    border: none;
+    outline: none;
+    border-bottom: #2A2976 1px solid;
+   /* background-color: #D9D9D9; */
+}
+
+.modal-titles{
+    display: flex;
+    justify-content: space-between;
 }
