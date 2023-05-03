@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "userEmail": "admin@gmail.com",
+      "password": "password",
+      "role": "admin",
+      "id": 1
+    }
+  ],
+  "projects": [
+    {
+      "projectName": ",nskj",
+      "userAssigned": "User 2",
+      "progress": "In Progress",
+      "description": "jhedgayuaw",
+      "id": 1
+    },
+    {
+      "projectName": "kjqwend",
+      "userAssigned": "User 2",
+      "progress": "",
+      "description": "kwedhiuwe",
+      "id": 2
+    }
+  ]
+}
