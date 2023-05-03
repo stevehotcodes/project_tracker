@@ -143,10 +143,13 @@ justify-content: center;
 
 }
 .add_task{
-width:100%;
+width:80%;
 height:4rem;
 display:flex;
 border-radius: 1rem;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
 
 }
 .add_task input{
@@ -158,11 +161,11 @@ font-size: large;
 .add_task_icon img{
 width:3rem;
 height:3rem;
+cursor: pointer;
 }
 .field_group{
-
 width:100%;
-display:grid;
+display:flex;
 place-items: center;
 margin: 60px;
 cursor: pointer;
