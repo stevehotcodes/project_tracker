@@ -196,6 +196,21 @@ border-radius: 2rem;
 cursor: pointer;
 
 }
+.allbtn1{
+  display: flex;
+align-content: center;
+justify-content: center;
+
+}
+.alldone1{
+  background-color: #2A2976;
+color: white;
+width: 50%;
+padding: 2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 4rem;
+}
 .all-tasks{
 height:80%;
 
