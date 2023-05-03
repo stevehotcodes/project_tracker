@@ -7,7 +7,7 @@
 
 }
 .main_container{
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   height: 90vh;
@@ -224,4 +224,5 @@ height: 2rem;
 float: left;
 }
 @media screen and (max-width: 768px) {
+
 }
