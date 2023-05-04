@@ -5,6 +5,18 @@
       "password": "password",
       "role": "admin",
       "id": 1
+    },
+    {
+      "userEmail": "admin@gmail.com",
+      "password": "password",
+      "role": "admin",
+      "id": 2
+    },
+    {
+      "userEmail": "admin@gmail.com",
+      "password": "password",
+      "role": "admin",
+      "id": 3
     }
   ],
   "projects": [
@@ -21,6 +33,20 @@
       "progress": "",
       "description": "kwedhiuwe",
       "id": 2
+    },
+    {
+      "projectName": "hsdjhxd",
+      "userAssigned": "User3",
+      "progress": "",
+      "description": "xsdjyhghsd",
+      "id": 3
+    },
+    {
+      "projectName": "q",
+      "userAssigned": "User3",
+      "progress": "",
+      "description": "wqed",
+      "id": 4
     }
   ]
 }
