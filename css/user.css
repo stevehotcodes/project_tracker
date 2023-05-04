@@ -6,6 +6,9 @@
 
 
 }
+body{
+  height: 100vh;
+}
 .main_container{
   width: 80%;
   margin: 0 auto;
@@ -103,7 +106,6 @@ margin: 0 auto;
 }
 .project_name{
 text-align: center;
-margin-bottom: -150px;
 }
 .project_description{
 width:80%;
@@ -131,6 +133,7 @@ font-size:1.5rem;
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  display: none;
 }
 .content{
   margin: 3rem;
@@ -188,7 +191,7 @@ display: flex;
 align-content: center;
 justify-content: center;
 }
-.alldone{
+.start_btn{
 /* position: fixed;
 bottom:0; */
 background-color: #2A2976;
@@ -222,6 +225,12 @@ height:80%;
 width: 2rem;
 height: 2rem;
 float: left;
+}
+.project_desc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 @media screen and (max-width: 768px) {
 }
