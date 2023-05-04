@@ -78,9 +78,9 @@ function openUpdateModal() {
     modalWrapper.style["display"] = "grid";
     modalWrapper.style["placeItems"] = "center";
 }
-function prePopulateProjectDetails(id, event) {
+function prePopulateProjectDetails(id) {
     return __awaiter(this, void 0, void 0, function* () {
-        event.preventDefault();
+        // event.preventDefault()
         openUpdateModal();
         console.log("prepopulate method");
         const response = yield fetch("http://localhost:3000/projects");

@@ -94,8 +94,8 @@ function openUpdateModal() {
   modalWrapper.style["placeItems"] = "center";
 }
 
-async function prePopulateProjectDetails(id: number, event: Event) {
-  event.preventDefault()
+async function prePopulateProjectDetails(id: number) {
+  // event.preventDefault()
   openUpdateModal();
 
   console.log("prepopulate method");
