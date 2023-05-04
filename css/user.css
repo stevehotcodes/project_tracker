@@ -7,7 +7,7 @@
 
 }
 body{
-  height: 100vh;
+  height: 90vh;
 }
 .main_container{
   width: 90%;
@@ -105,7 +105,7 @@ padding-left: 20px;
 }
 .user_profile{
 width: 25rem;
-height: 47.75rem;
+/* height: 47.75rem; */
 display: flex;
 background: #2A2976;
 border-radius: 20px;
@@ -169,7 +169,7 @@ justify-content: center;
   font-family: 'Alatsi';
   font-style: normal;
   font-weight: 400;
-  line-height: 46px;
+  /* line-height: 46px; */
   text-align: center;
   margin: 0 auto;
   display: flex;
