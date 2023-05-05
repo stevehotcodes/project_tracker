@@ -41,3 +41,65 @@ function getProjectDetails(userAssigned) {
     });
 }
 getProjectDetails("user1");
+const task_desc = document.querySelector('.all-tasks');
+// Fetching task
+function getTaskDetails(userAssignedd) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch('http://localhost:3000/tasks');
+        const data = yield response.json();
+        console.log(data);
+        let html = "";
+        data.forEach((element) => {
+            console.log(element);
+            if (element.userAssigned == userAssignedd) {
+                let task_html = `
+        <div class="field_group">
+                       <div class="input_field">
+                         <p>${element.taskName}</p>
+                         <div class="icons_image">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <ion-icon size="large" name="trash-outline" onclick= "deleteTask( ${element.id})"></ion-icon>
+                         </div>     
+                       </div>
+                    </div>`;
+                html += task_html;
+            }
+            task_desc.innerHTML = html;
+        });
+        // return data;
+    });
+}
+getTaskDetails("user1");
+//add task
+const task_form = document.querySelector('#task_form');
+task_form.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
+    e.preventDefault();
+    const taskName = document.querySelector('.input-field1').value;
+    const data = {
+        "taskName": taskName,
+        "userAssigned": "user1",
+    };
+    yield fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(() => {
+        console.log('new task added');
+    });
+}));
+// //post project
+// const project_form = document.querySelector('#project_form')as HTMLFormElement;
+// project_form.addEventListener('submit', (e) => {
+// });
+// delete task
+function deleteTask(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`http://localhost:3000/tasks/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+    });
+}
+;

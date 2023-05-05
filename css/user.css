@@ -242,14 +242,13 @@ font-weight:700;
 
 
 .project_task{
-  width: 49%;
+  width: 51%;
   background: #FFFFFF;
   border-radius: 20px;
   display:flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
   display: none;
+  margin: 0 auto;
 }
 .content{
   margin: 3rem;
@@ -268,7 +267,7 @@ display:flex;
 border-radius: 1rem;
 justify-content: center;
 align-items: center;
-margin: 0 auto;
+margin: 0 auto; 
 
 }
 .add_task input{
@@ -286,7 +285,7 @@ cursor: pointer;
 width:100%;
 display:flex;
 place-items: center;
-margin: 60px;
+margin: 1rem .5rem;
 cursor: pointer;
 
 }
@@ -347,6 +346,13 @@ float: left;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+ion-icon {
+  color: red;
+}
+#checkbox{
+    width: 1.5rem;
+    height: 1.5rem;
 }
 @media screen and (max-width: 768px) {
 }

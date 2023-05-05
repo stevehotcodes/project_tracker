@@ -54,9 +54,9 @@
                 <h1>PROJECT TASK</h1>
             </div>
                 <div class="add_task">
-                    <input type="text" placeholder="Enter task name" class="input-field">
-                    <div class="add_task_icon">
-                        <img src="/images/icons/add.png">
+                    <input type="text" placeholder="Enter task name" class="input-field1">
+                    <div class="add_task_icon" >
+                        <ion-icon size="large" style="color: #242424; cursor: pointer; "   name="add-circle-outline" id="task_form"></ion-icon>
                     </div>
                 </div>
                 <div class="all-tasks">
@@ -64,35 +64,29 @@
                        <div class="input_field">
                          <p>Task 1</p>
                          <div class="icons_image">
-                            <img src="/images/icons/checkbox.png"> <img src="/images/icons/trash-bin.png"> 
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <ion-icon size="large" name="trash-outline"></ion-icon>
+                         </div>     
+                       </div>
+                    </div>
+                       <div class="field_group">
+                       <div class="input_field">
+                         <p>Task 1</p>
+                         <div class="icons_image">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <ion-icon size="large" name="trash-outline" id ="task_delete"></ion-icon>
                          </div>     
                        </div>
                     </div>
                     <div class="field_group">
                         <div class="input_field">
-                          <p>Task 2</p>
+                          <p>Task 1</p>
                           <div class="icons_image">
-                             <img src="/images/icons/checkbox.png"> <img src="/images/icons/trash-bin.png"> 
+                             <input type="checkbox" name="checkbox" id="checkbox">
+                             <ion-icon size="large" name="trash-outline"></ion-icon>
                           </div>     
                         </div>
                      </div>
-                     <div class="field_group">
-                        <div class="input_field">
-                          <p>Task 3</p>
-                          <div class="icons_image">
-                             <img src="/images/icons/checkbox.png"> <img src="/images/icons/trash-bin.png"> 
-                          </div>     
-                        </div>
-                     </div>
-                     <div class="field_group">
-                        <div class="input_field">
-                          <p>Task 4</p>
-                          <div class="icons_image">
-                             <img src="/images/icons/checkbox.png"> <img src="/images/icons/trash-bin.png"> 
-                          </div>     
-                        </div>
-                     </div>
-
                      <div class="allbtn1">
                         <button class="alldone1">All DONE</button>
                      </div>
@@ -100,6 +94,8 @@
                  </div>
     </div>
        
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       
 <script src="../admin-js/dist/user.js"></script>
 </body>
