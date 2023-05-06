@@ -11,6 +11,8 @@ const AddNewProjectBt = document.getElementById(
 ) as HTMLButtonElement;
 const users = document.querySelector(".all-users") as HTMLDivElement;
 
+
+
 const modalWrapper = document.querySelector(".modal-wrapper") as HTMLDivElement;
 function openModal() {
   (document.querySelector("#project-name") as HTMLInputElement).value ="";
@@ -30,7 +32,7 @@ function closeModal() {
 
 async function addProject(event: Event) {
   event.preventDefault();
-  console.log("addProject method");
+ // console.log("addProject method");
   const projectNameValue = (
     document.querySelector("#project-name") as HTMLInputElement
   ).value;
@@ -40,6 +42,12 @@ async function addProject(event: Event) {
   const projectDescriptionValue = (
     document.querySelector("#project-desc") as HTMLInputElement
   ).value;
+
+  if (projectNameValue === "" || projectDescriptionValue ==="") {
+    alert("please fill all values")
+    return
+  }
+
   const newProject: {} = {
     projectName: projectNameValue,
     userAssigned: userAssignedValue,
@@ -58,9 +66,14 @@ async function addProject(event: Event) {
 
 async function showProjects() {
   const response = await fetch("http://localhost:3000/projects");
-  const allProjects = await response.json();
+  const allProjects: [] = await response.json() ;
 
+  console.log(allProjects)
   let html = ``;
+
+  if (allProjects.length ===0 ){
+    html = `<h3> No Projects </h3>`
+   }
   allProjects.forEach(
     (item: {
       projectName: string;
@@ -70,7 +83,7 @@ async function showProjects() {
     }) => {
       let state = "";
       if (item.progress === "") {
-        state = "unassigned";
+        state = "not started";
       } else {
         state = item.progress;
       }
@@ -107,6 +120,7 @@ async function prePopulateProjectDetails(id: number, e:Event) {
    e.preventDefault()
   openUpdateModal();
 
+ (document.querySelector("#project-id") as HTMLInputElement).value = id.toString();  //hidden input field to pass the id to update method :)
  // console.log("prepopulate method");
 
   const response = await fetch("http://localhost:3000/projects");
@@ -131,34 +145,48 @@ async function prePopulateProjectDetails(id: number, e:Event) {
       }
     }
   );
-
-  // let projectNameValue = (
-  //   document.querySelector("#project-name") as HTMLInputElement
-  // ).value;
-  // let userAssignedValue = (
-  //   document.querySelector("#user-name") as HTMLInputElement
-  // ).value;
-  // let projectDescriptionValue = (
-  //   document.querySelector("#project-desc") as HTMLInputElement
-  // ).value;
-  // const newProject: {} = {
-  //   projectName: projectNameValue,
-  //   userAssigned: userAssignedValue,
-  //   progress: "",
-  //   description: projectDescriptionValue,
-  // };
-
-  // await fetch(" http://localhost:3000/projects/${idUsed}", {
-  //   method: "PATCH",
-  //   body: JSON.stringify(newProject),
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // });
 }
 
+async function updateProject() {
 
+  let projectNameValue = (
+    document.querySelector("#project-name") as HTMLInputElement
+  ).value;
+  let userAssignedValue = (
+    document.querySelector("#user-name") as HTMLInputElement
+  ).value;
+  let projectDescriptionValue = (
+    document.querySelector("#project-desc") as HTMLInputElement
+  ).value;
+  let projectID = (
+    document.querySelector("#project-id") as HTMLInputElement
+  ).value;
+  //console.log(projectID);
+  if (projectNameValue === ""  || projectDescriptionValue ==="") {
+    alert("please fill all values")
+    return
+  }
+  const newProject: {} = {
+    projectName: projectNameValue,
+    userAssigned: userAssignedValue,
+    progress: "",                                                           // assuming an update on project means the progress starts over                        
+    description: projectDescriptionValue,
+  };
 
+  await fetch(` http://localhost:3000/projects/${projectID}`, {
+    method: "PATCH",
+    body: JSON.stringify(newProject),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  
+}
+
+// let projectID = (
+//   document.querySelector("#project-id") as HTMLInputElement
+// ).value;
+updateProjectBt.addEventListener("click",updateProject)
 async function deleteProject(id: number) {
   await fetch(`http://localhost:3000/projects/${id}`, {
     method: "DELETE",
@@ -168,14 +196,36 @@ async function deleteProject(id: number) {
   });
 }
 
+async function showUsersSelectionOptions() {
+  const response = await fetch("http://localhost:3000/users");
+  const allUsers: [] = await response.json();
+  let html = ``;
+  if (allUsers.length ===0 ){
+       html = `<h3> No Users </h3>`
+      }
+      allUsers.forEach((item: { userEmail: string; id: number }) => {
+        html += `<option value = "${item.userEmail}">${item.userEmail}</option>`;
+      });
+
+  const userSelection = document.getElementById("user-name") as HTMLSelectElement
+  userSelection.innerHTML = html;
+  
+}
+
+showUsersSelectionOptions()
 //------------------------------------------------users functions----------------------------------------------
 
 async function showUsers() {
   const response = await fetch("http://localhost:3000/users");
-  const allProjects = await response.json();
+  const allUsers: [] = await response.json();
 
   let html = ``;
-  allProjects.forEach((item: { userEmail: string; id: number }) => {
+
+  if (allUsers.length ===0 ){
+    html = `<h3> No Users </h3>`
+   }
+ 
+  allUsers.forEach((item: { userEmail: string; id: number }) => {
     html += `<div class="each-user">
      <div class="img-name">
          <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">

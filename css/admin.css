@@ -51,6 +51,7 @@ font: weight 700px; ;
         background-color: #D9D9D9;
         border-radius: 10px;
         color: black;
+        width: 90%;
         
 }
 
@@ -160,4 +161,27 @@ font: weight 700px; ;
 .modal-titles{
     display: flex;
     justify-content: space-between;
+}
+
+
+@media screen and (max-width:768px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        /* width: 100%; */
+    }
+    .projects-nav{
+        display: none;
+    }
+    .each-project{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    .each-project p{
+        text-align: center;
+    }
+    .modal-container{
+        width: 100%;
+    }
 }

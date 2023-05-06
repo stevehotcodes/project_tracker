@@ -33,10 +33,14 @@ function closeModal() {
 function addProject(event) {
     return __awaiter(this, void 0, void 0, function* () {
         event.preventDefault();
-        console.log("addProject method");
+        // console.log("addProject method");
         const projectNameValue = document.querySelector("#project-name").value;
         const userAssignedValue = document.querySelector("#user-name").value;
         const projectDescriptionValue = document.querySelector("#project-desc").value;
+        if (projectNameValue === "" || projectDescriptionValue === "") {
+            alert("please fill all values");
+            return;
+        }
         const newProject = {
             projectName: projectNameValue,
             userAssigned: userAssignedValue,
@@ -56,11 +60,15 @@ function showProjects() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch("http://localhost:3000/projects");
         const allProjects = yield response.json();
+        console.log(allProjects);
         let html = ``;
+        if (allProjects.length === 0) {
+            html = `<h3> No Projects </h3>`;
+        }
         allProjects.forEach((item) => {
             let state = "";
             if (item.progress === "") {
-                state = "unassigned";
+                state = "not started";
             }
             else {
                 state = item.progress;
@@ -89,6 +97,7 @@ function prePopulateProjectDetails(id, e) {
     return __awaiter(this, void 0, void 0, function* () {
         e.preventDefault();
         openUpdateModal();
+        document.querySelector("#project-id").value = id.toString(); //hidden input field to pass the id to update method :)
         // console.log("prepopulate method");
         const response = yield fetch("http://localhost:3000/projects");
         const allProjects = yield response.json();
@@ -104,30 +113,38 @@ function prePopulateProjectDetails(id, e) {
                 idUsed = id;
             }
         });
-        // let projectNameValue = (
-        //   document.querySelector("#project-name") as HTMLInputElement
-        // ).value;
-        // let userAssignedValue = (
-        //   document.querySelector("#user-name") as HTMLInputElement
-        // ).value;
-        // let projectDescriptionValue = (
-        //   document.querySelector("#project-desc") as HTMLInputElement
-        // ).value;
-        // const newProject: {} = {
-        //   projectName: projectNameValue,
-        //   userAssigned: userAssignedValue,
-        //   progress: "",
-        //   description: projectDescriptionValue,
-        // };
-        // await fetch(" http://localhost:3000/projects/${idUsed}", {
-        //   method: "PATCH",
-        //   body: JSON.stringify(newProject),
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // });
     });
 }
+function updateProject() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let projectNameValue = document.querySelector("#project-name").value;
+        let userAssignedValue = document.querySelector("#user-name").value;
+        let projectDescriptionValue = document.querySelector("#project-desc").value;
+        let projectID = document.querySelector("#project-id").value;
+        //console.log(projectID);
+        if (projectNameValue === "" || projectDescriptionValue === "") {
+            alert("please fill all values");
+            return;
+        }
+        const newProject = {
+            projectName: projectNameValue,
+            userAssigned: userAssignedValue,
+            progress: "",
+            description: projectDescriptionValue,
+        };
+        yield fetch(` http://localhost:3000/projects/${projectID}`, {
+            method: "PATCH",
+            body: JSON.stringify(newProject),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    });
+}
+// let projectID = (
+//   document.querySelector("#project-id") as HTMLInputElement
+// ).value;
+updateProjectBt.addEventListener("click", updateProject);
 function deleteProject(id) {
     return __awaiter(this, void 0, void 0, function* () {
         yield fetch(`http://localhost:3000/projects/${id}`, {
@@ -138,13 +155,32 @@ function deleteProject(id) {
         });
     });
 }
+function showUsersSelectionOptions() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("http://localhost:3000/users");
+        const allUsers = yield response.json();
+        let html = ``;
+        if (allUsers.length === 0) {
+            html = `<h3> No Users </h3>`;
+        }
+        allUsers.forEach((item) => {
+            html += `<option value = "${item.userEmail}">${item.userEmail}</option>`;
+        });
+        const userSelection = document.getElementById("user-name");
+        userSelection.innerHTML = html;
+    });
+}
+showUsersSelectionOptions();
 //------------------------------------------------users functions----------------------------------------------
 function showUsers() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch("http://localhost:3000/users");
-        const allProjects = yield response.json();
+        const allUsers = yield response.json();
         let html = ``;
-        allProjects.forEach((item) => {
+        if (allUsers.length === 0) {
+            html = `<h3> No Users </h3>`;
+        }
+        allUsers.forEach((item) => {
             html += `<div class="each-user">
      <div class="img-name">
          <img src="https://www.capitalfm.co.ke/thesauce/files/2019/05/Bey-T-1.jpg" alt="">
