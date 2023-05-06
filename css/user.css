@@ -252,7 +252,8 @@ font-weight:700;
   border-radius: 20px;
   display:flex;
   flex-direction: column;
-  display: none;
+  justify-content: space-between;
+  /* display: none; */
   margin: 0 auto;
 }
 .content{
@@ -294,6 +295,8 @@ margin: 1rem .5rem;
 cursor: pointer;
 
 }
+
+
 .input_field{
 width:85%;
 height:3rem;
@@ -317,28 +320,32 @@ bottom:0; */
 background-color: #2A2976;
 color: white;
 width: 50%;
-padding: 2rem;
+padding: 1rem;
 border-radius: 2rem;
 cursor: pointer;
 
 }
 .allbtn1{
   display: flex;
-align-content: center;
-justify-content: center;
+  justify-content: center;
 
 }
 .alldone1{
   background-color: #2A2976;
 color: white;
 width: 50%;
-padding: 2rem;
+padding: 1rem;
 border-radius: 2rem;
 cursor: pointer;
 margin: 4rem;
+
 }
+
 .all-tasks{
 height:80%;
+display: flex;
+flex-direction: column;
+padding-left: 2rem;
 
 }
 .logout-img img{
@@ -359,7 +366,7 @@ ion-icon {
     width: 1.5rem;
     height: 1.5rem;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 320px) {
     .main_container{
       display: block;
       margin: 0 auto;
@@ -370,6 +377,7 @@ ion-icon {
    padding: 10px;
    margin-left: 40px;
    margin-bottom: 2rem;
+   flex-wrap: wrap;
    }
    .user_details{
     margin-bottom: 2rem;
@@ -379,6 +387,7 @@ ion-icon {
     border: 1px solid;
     box-shadow: 5px 10px #000;
     display: flex;
+  
    }
    .project_desc{
     margin:2rem 0;
@@ -421,4 +430,9 @@ ion-icon {
   .allbtn{
     margin: 2;
   }
+  .user_details{
+    margin-bottom: 2rem;
+    height: 100%;
+
+   }
 }

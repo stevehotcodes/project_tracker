@@ -10,34 +10,44 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const start_btn = document.querySelector('#start');
 const project_task_div = document.getElementById('project_task');
-start_btn.addEventListener('click', showprojecttask);
-function showprojecttask() {
-    start_btn.style.display = 'none';
-    project_task_div.style.display = 'block';
-}
+// function showprojecttask (){
+//     start_btn.style.display = 'none';
+//     project_task_div.style.display = 'block';
+// }
 // Fetching data from json file when assigned project 
 function getProjectDetails(userAssigned) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch('http://localhost:3000/projects');
         const data = yield response.json();
         let html = "";
+        let id = 0;
         data.forEach((element) => {
             if (element.userAssigned === userAssigned) {
+                id = element.id;
                 let project_html = `
         <h2 class="project_name">${element.projectName} </h2>
         <div class="project">
      
          <div class="project_description"><p>${element.description}</p>
-             
+         
          </div>
-     </div>`;
-                let project_desc = document.querySelector('.project_desc');
+        
+     </div>
+     `;
                 html += project_html;
-                project_desc.innerHTML = html;
             }
         });
+        let htmlbt = `
+    <button class="start_btn" id="start" onclick= "changeToInProgress(${id},event)">START PROJECT</button>
+ `;
+        // html += htmlbt;
+        // task_desc.innerHTML = html;
+        let project_desc = document.querySelector('.project_desc');
+        let btStartDiv = document.querySelector('.allbtn');
+        project_desc.innerHTML = html;
         // console.log(data);
         // return data;
+        btStartDiv.innerHTML = htmlbt;
     });
 }
 getProjectDetails("user1");
@@ -49,6 +59,7 @@ function getTaskDetails(userAssignedd) {
         const data = yield response.json();
         console.log(data);
         let html = "";
+        let userAssigned22 = "";
         data.forEach((element) => {
             console.log(element);
             if (element.userAssigned == userAssignedd) {
@@ -62,11 +73,17 @@ function getTaskDetails(userAssignedd) {
                          </div>     
                        </div>
                     </div>`;
+                userAssigned22 = element.userAssigned;
                 html += task_html;
             }
-            task_desc.innerHTML = html;
         });
         // return data;
+        console.log(userAssigned22);
+        let htmlbt = `<div class="allbtn1">
+    <button class="alldone1" onclick = "markProjectCompleted('${userAssigned22}')">All DONE</button>
+ </div>`;
+        html += htmlbt;
+        task_desc.innerHTML = html;
     });
 }
 getTaskDetails("user1");
@@ -75,6 +92,10 @@ const task_form = document.querySelector('#task_form');
 task_form.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
     e.preventDefault();
     const taskName = document.querySelector('.input-field1').value;
+    if (taskName === "") {
+        alert("Please enter task name");
+        return;
+    }
     const data = {
         "taskName": taskName,
         "userAssigned": "user1",
@@ -89,7 +110,7 @@ task_form.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, fun
 }));
 // //post project
 // const project_form = document.querySelector('#project_form')as HTMLFormElement;
-// project_form.addEventListener('submit', (e) => {
+// project_form.addEventListener('submit', (e) => {k
 // });
 // delete task
 function deleteTask(id) {
@@ -104,24 +125,56 @@ function deleteTask(id) {
 }
 ;
 //function to mark project as in progress
-function markInProgress(id) {
+function markProjectInProgress() {
+    const data2 = {
+        "progress": "In Progress",
+    };
+    return data2;
+}
+function changeToInProgress(id, e) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield fetch(`http://localhost:3000/tasks/${id}`, {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "/db.json"
+        e.preventDefault();
+        const data2 = markProjectInProgress();
+        yield fetch(`http://localhost:3000/projects/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(data2),
+            headers: { 'Content-Type': 'application/json' }
+        });
+    });
+}
+//function to delete all tasks
+function deletealltasks(userAssignedd) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch('http://localhost:3000/tasks');
+        const data = yield response.json();
+        data.forEach((element) => {
+            if (element.userAssigned === userAssignedd) {
+                console.log(element);
+                deleteTask(element.id);
             }
         });
     });
 }
 // function to mark project as completed
-function markCompleted(id) {
+function markProjectCompleted(userAssignedd) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield fetch(`http://localhost:3000/tasks/${id}`, {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "/db.json"
+        const response = yield fetch('http://localhost:3000/projects');
+        const data = yield response.json();
+        let id = 0;
+        data.forEach((element) => {
+            if (element.userAssigned === userAssignedd) {
+                console.log(element);
+                id = element.id;
             }
+        });
+        const data2 = {
+            "progress": "Completed",
+        };
+        deletealltasks(userAssignedd);
+        yield fetch(`http://localhost:3000/projects/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(data2),
+            headers: { 'Content-Type': 'application/json' }
         });
     });
 }
@@ -143,13 +196,14 @@ function getUserName(userAssigned) {
 }
 ;
 //function to mark task as completed
-function markTask(id) {
+function markTaskComplete(id) {
     return __awaiter(this, void 0, void 0, function* () {
         yield fetch(`http://localhost:3000/tasks/${id}`, {
             method: 'PUT',
             headers: {
-                "Content-Type": "/db.json"
+                "Content-Type": "application/json"
             }
         });
     });
 }
+//all done button
