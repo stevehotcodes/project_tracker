@@ -6,10 +6,19 @@ addProjectBt.addEventListener("click", openModal);
 const closeModalBt = document.getElementById("close") as HTMLSpanElement;
 closeModalBt.addEventListener("click", closeModal);
 
+const AddNewProjectBt = document.getElementById(
+  "project-details"
+) as HTMLButtonElement;
 const users = document.querySelector(".all-users") as HTMLDivElement;
 
 const modalWrapper = document.querySelector(".modal-wrapper") as HTMLDivElement;
 function openModal() {
+  (document.querySelector("#project-name") as HTMLInputElement).value ="";
+(document.querySelector("#user-name") as HTMLInputElement).value =
+  "";
+(document.querySelector("#project-desc") as HTMLInputElement).value =
+  "";
+  AddNewProjectBt.style.display = "block"
   updateProjectBt.style.display = "none";
   modalWrapper.style["display"] = "grid";
   modalWrapper.style["placeItems"] = "center";
@@ -69,7 +78,7 @@ async function showProjects() {
        <p style="width: 7rem;">${item.projectName}</p>
        <p>${item.userAssigned}</p>
        <p>${state}</p>
-       <button id="update-bt" onclick = "prePopulateProjectDetails(${item.id})">UPDATE</button>
+       <button id="update-bt" onclick = "prePopulateProjectDetails(${item.id}, event)">UPDATE</button>
        <ion-icon name="trash-outline" style = "color: red" onclick = "deleteProject(${item.id})"></ion-icon>
    </div>`;
     }
@@ -82,9 +91,7 @@ async function showProjects() {
 }
 
 showProjects();
-const AddNewProjectBt = document.getElementById(
-  "project-details"
-) as HTMLButtonElement;
+
 
 AddNewProjectBt.addEventListener("click", addProject);
 
@@ -92,13 +99,15 @@ function openUpdateModal() {
   AddNewProjectBt.style.display = "none";
   modalWrapper.style["display"] = "grid";
   modalWrapper.style["placeItems"] = "center";
+  updateProjectBt.style.display = "block"
 }
 
-async function prePopulateProjectDetails(id: number) {
-  // event.preventDefault()
+
+async function prePopulateProjectDetails(id: number, e:Event) {
+   e.preventDefault()
   openUpdateModal();
 
-  console.log("prepopulate method");
+ // console.log("prepopulate method");
 
   const response = await fetch("http://localhost:3000/projects");
   const allProjects = await response.json();
@@ -123,30 +132,32 @@ async function prePopulateProjectDetails(id: number) {
     }
   );
 
-  let projectNameValue = (
-    document.querySelector("#project-name") as HTMLInputElement
-  ).value;
-  let userAssignedValue = (
-    document.querySelector("#user-name") as HTMLInputElement
-  ).value;
-  let projectDescriptionValue = (
-    document.querySelector("#project-desc") as HTMLInputElement
-  ).value;
-  const newProject: {} = {
-    projectName: projectNameValue,
-    userAssigned: userAssignedValue,
-    progress: "",
-    description: projectDescriptionValue,
-  };
+  // let projectNameValue = (
+  //   document.querySelector("#project-name") as HTMLInputElement
+  // ).value;
+  // let userAssignedValue = (
+  //   document.querySelector("#user-name") as HTMLInputElement
+  // ).value;
+  // let projectDescriptionValue = (
+  //   document.querySelector("#project-desc") as HTMLInputElement
+  // ).value;
+  // const newProject: {} = {
+  //   projectName: projectNameValue,
+  //   userAssigned: userAssignedValue,
+  //   progress: "",
+  //   description: projectDescriptionValue,
+  // };
 
-  await fetch(" http://localhost:3000/projects/${idUsed}", {
-    method: "PATCH",
-    body: JSON.stringify(newProject),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  // await fetch(" http://localhost:3000/projects/${idUsed}", {
+  //   method: "PATCH",
+  //   body: JSON.stringify(newProject),
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // });
 }
+
+
 
 async function deleteProject(id: number) {
   await fetch(`http://localhost:3000/projects/${id}`, {

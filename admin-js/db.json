@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "userEmail": "admin@gmail.com",
+      "userEmail": "admin",
       "password": "password",
       "role": "admin",
       "id": 1
     },
     {
-      "userEmail": "admin@gmail.com",
+      "userEmail": "admin@",
       "password": "password",
       "role": "admin",
       "id": 2
     },
     {
-      "userEmail": "admin@gmail.com",
+      "userEmail": "admin",
       "password": "password",
       "role": "admin",
       "id": 3

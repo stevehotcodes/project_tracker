@@ -13,9 +13,16 @@ const addProjectBt = document.getElementById("add-project-bt");
 addProjectBt.addEventListener("click", openModal);
 const closeModalBt = document.getElementById("close");
 closeModalBt.addEventListener("click", closeModal);
+const AddNewProjectBt = document.getElementById("project-details");
 const users = document.querySelector(".all-users");
 const modalWrapper = document.querySelector(".modal-wrapper");
 function openModal() {
+    document.querySelector("#project-name").value = "";
+    document.querySelector("#user-name").value =
+        "";
+    document.querySelector("#project-desc").value =
+        "";
+    AddNewProjectBt.style.display = "block";
     updateProjectBt.style.display = "none";
     modalWrapper.style["display"] = "grid";
     modalWrapper.style["placeItems"] = "center";
@@ -62,7 +69,7 @@ function showProjects() {
        <p style="width: 7rem;">${item.projectName}</p>
        <p>${item.userAssigned}</p>
        <p>${state}</p>
-       <button id="update-bt" onclick = "prePopulateProjectDetails(${item.id})">UPDATE</button>
+       <button id="update-bt" onclick = "prePopulateProjectDetails(${item.id}, event)">UPDATE</button>
        <ion-icon name="trash-outline" style = "color: red" onclick = "deleteProject(${item.id})"></ion-icon>
    </div>`;
         });
@@ -71,18 +78,18 @@ function showProjects() {
     });
 }
 showProjects();
-const AddNewProjectBt = document.getElementById("project-details");
 AddNewProjectBt.addEventListener("click", addProject);
 function openUpdateModal() {
     AddNewProjectBt.style.display = "none";
     modalWrapper.style["display"] = "grid";
     modalWrapper.style["placeItems"] = "center";
+    updateProjectBt.style.display = "block";
 }
-function prePopulateProjectDetails(id) {
+function prePopulateProjectDetails(id, e) {
     return __awaiter(this, void 0, void 0, function* () {
-        // event.preventDefault()
+        e.preventDefault();
         openUpdateModal();
-        console.log("prepopulate method");
+        // console.log("prepopulate method");
         const response = yield fetch("http://localhost:3000/projects");
         const allProjects = yield response.json();
         let idUsed = 0;
@@ -97,22 +104,28 @@ function prePopulateProjectDetails(id) {
                 idUsed = id;
             }
         });
-        let projectNameValue = document.querySelector("#project-name").value;
-        let userAssignedValue = document.querySelector("#user-name").value;
-        let projectDescriptionValue = document.querySelector("#project-desc").value;
-        const newProject = {
-            projectName: projectNameValue,
-            userAssigned: userAssignedValue,
-            progress: "",
-            description: projectDescriptionValue,
-        };
-        yield fetch(" http://localhost:3000/projects/${idUsed}", {
-            method: "PATCH",
-            body: JSON.stringify(newProject),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+        // let projectNameValue = (
+        //   document.querySelector("#project-name") as HTMLInputElement
+        // ).value;
+        // let userAssignedValue = (
+        //   document.querySelector("#user-name") as HTMLInputElement
+        // ).value;
+        // let projectDescriptionValue = (
+        //   document.querySelector("#project-desc") as HTMLInputElement
+        // ).value;
+        // const newProject: {} = {
+        //   projectName: projectNameValue,
+        //   userAssigned: userAssignedValue,
+        //   progress: "",
+        //   description: projectDescriptionValue,
+        // };
+        // await fetch(" http://localhost:3000/projects/${idUsed}", {
+        //   method: "PATCH",
+        //   body: JSON.stringify(newProject),
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // });
     });
 }
 function deleteProject(id) {
