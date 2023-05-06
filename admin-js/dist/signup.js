@@ -31,23 +31,26 @@ function onSignup() {
             alert("no value ");
              error_msg.style.display="block";
              error_msg2.style.display="block";
-             
+
+             redirecttoSamepage()
              
         }
         else {
             if (userPassword !== confirmPassword) {
-                alert('password msmatch');
+                alert('password mismatch');
                 error_msg3.style.display="block";
+              redirecttoSamepage()
+                
             }
             else {
-                if (userPassword === confirmPassword) {
+                if ((userPassword === confirmPassword) && userEmail!==" ") {
                     let newUser = {
                         "userEmail": userEmail,
                         "password": userPassword,
                         "role": "user",
                     };
-                    alert("Registration success!");
-                    redirecttoLogin();
+                 
+                    
                     yield fetch("http://localhost:3000/users", {
                         method: "POST",
                         body: JSON.stringify(newUser),
@@ -55,6 +58,9 @@ function onSignup() {
                             "Content-Type": "application/json"
                         },
                     });
+                }
+                else{
+                    redirecttoSamepage() 
                 }
                 
             }
@@ -64,7 +70,18 @@ function onSignup() {
     });
 }
 function redirecttoLogin() {
+    
     window.location.href = "/html/login.html";
+    
+    ;
+}
+function redirecttoSamepage(){
+    setTimeout(function(){
+        window.location.reload();
+     }, 1000);
+
+    
+    // location.reload();
 }
 // //    window.open("file:///D:/project_tracker/html/login.html")
 // }
