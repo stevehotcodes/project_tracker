@@ -123,6 +123,7 @@ async function prePopulateProjectDetails(id: number, e:Event) {
  (document.querySelector("#project-id") as HTMLInputElement).value = id.toString();  //hidden input field to pass the id to update method :)
  // console.log("prepopulate method");
 
+ 
   const response = await fetch("http://localhost:3000/projects");
   const allProjects = await response.json();
   let idUsed = 0;
