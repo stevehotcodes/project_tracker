@@ -23,16 +23,5 @@
       "id": 2
     }
   ],
-  "tasks": [
-    {
-      "taskName": "taskkkkkkkkkkk",
-      "userAssigned": "user1",
-      "id": 1
-    },
-    {
-      "taskName": "dxfgvxg",
-      "userAssigned": "user1",
-      "id": 2
-    }
-  ]
+  "tasks": []
 }

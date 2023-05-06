@@ -116,3 +116,59 @@ async function deleteTask( id:number) {
         })
  
 };
+//function to mark project as in progress
+async function markInProgress(id:number) {
+    await fetch(`http://localhost:3000/tasks/${id}`, {
+            method:'PUT',
+            headers:{
+                "Content-Type": "/db.json"
+            }
+        })
+
+
+}
+
+
+
+
+// function to mark project as completed
+async function markCompleted(id:number) {
+    await fetch(`http://localhost:3000/tasks/${id}`, {
+            method:'PUT',
+            headers:{
+                "Content-Type": "/db.json"
+            }
+        })
+            
+}
+
+
+//funtion to put username in the header
+const user_name = document.querySelector('.user_name')as HTMLDivElement;
+const user_name1 = document.querySelector('.user_name1')as HTMLDivElement;
+const user_name2 = document.querySelector('.user_name2')as HTMLDivElement;
+const user_name3 = document.querySelector('.user_name3')as HTMLDivElement;
+const user_name4 = document.querySelector('.user_name4')as HTMLDivElement;
+     async function getUserName(userAssigned: string) {
+    const response = await fetch('http://localhost:3000/users');
+    const data = await response.json();
+    console.log(data);
+    let html = "";
+    data.forEach((element: {
+        userName: string; userAssigned: string;
+}) => {
+     }
+    
+   )
+ };
+//function to mark task as completed
+async function markTask(id:number) {
+    await fetch(`http://localhost:3000/tasks/${id}`, {
+            method:'PUT',
+            headers:{
+                "Content-Type": "/db.json"
+            }
+        })
+
+
+}

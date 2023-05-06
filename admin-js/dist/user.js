@@ -103,3 +103,53 @@ function deleteTask(id) {
     });
 }
 ;
+//function to mark project as in progress
+function markInProgress(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`http://localhost:3000/tasks/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "/db.json"
+            }
+        });
+    });
+}
+// function to mark project as completed
+function markCompleted(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`http://localhost:3000/tasks/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "/db.json"
+            }
+        });
+    });
+}
+//funtion to put username in the header
+const user_name = document.querySelector('.user_name');
+const user_name1 = document.querySelector('.user_name1');
+const user_name2 = document.querySelector('.user_name2');
+const user_name3 = document.querySelector('.user_name3');
+const user_name4 = document.querySelector('.user_name4');
+function getUserName(userAssigned) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch('http://localhost:3000/users');
+        const data = yield response.json();
+        console.log(data);
+        let html = "";
+        data.forEach((element) => {
+        });
+    });
+}
+;
+//function to mark task as completed
+function markTask(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`http://localhost:3000/tasks/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "/db.json"
+            }
+        });
+    });
+}
