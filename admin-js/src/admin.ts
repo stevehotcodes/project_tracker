@@ -166,6 +166,7 @@ async function updateProject() {
     alert("please fill all values")
     return
   }
+
   const newProject: {} = {
     projectName: projectNameValue,
     userAssigned: userAssignedValue,
