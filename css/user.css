@@ -352,7 +352,9 @@ padding-left: 2rem;
 width: 2rem;
 height: 2rem;
 float: left;
-}
+
+@media screen and (max-width: 768px) {
+
 .project_desc{
   display: flex;
   flex-direction: column;
@@ -435,4 +437,5 @@ ion-icon {
     height: 100%;
 
    }
+
 }
