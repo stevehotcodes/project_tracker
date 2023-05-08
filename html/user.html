@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User page</title>
+    <link rel="stylesheet" href="../css/user.css">
+</head>
+<body>
+    <div class="navigation_1">
+        <div class="user-dashboard-title">
+            <h1>PROJECT TRACKER</h1>
+        </div>
+        <div class="navigation">
+         <p class="assigned_user">User@gmail.com</p>
+            <a href="#"><button class="logout">Log out </button></a>
+          </div> 
+    </div>
+
+   <div class="main_container">
+       <div class="user_profile">
+                    <p class="welcome"> <br> <span class="assigned_user2">USER </span></p>
+                    <div class="user_img">
+                        <img src="/images/user.png">
+                    </div>
+                    <div class="user_details">
+                        <div class="username">
+                        
+                        
+                         <p class="assigned_user3" >NAME:Username</p>
+                            <p>UX/UI DESIGNER</p>
+                            <p>PROJECTS DONE: 5</p>
+                        </div>
+                    
+                    </div>
+       </div>
+      <div class="content">
+        <div class="card">
+            <div class="project_desc">
+                <p>You have no project assigned </p>
+                   <!-- <h2 class="project_name">Projectname </h2>
+                   <div class="project">
+                
+                    <div class="project_description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam est, cumque suscipit obcaecati beatae vero officia aliquid, corporis natus, autem eum similique doloribus libero quo perspiciatis tenetur ipsa nemo incidunt?</p>
+                        
+                    </div>
+                </div> -->
+            </div>
+            <div class="allbtn">
+                <button class="start_btn" id="start">START PROJECT</button>
+             </div>
+        </div>
+    </div>
+        <div class="project_task" id="project_task">
+             <div class="task_name">
+                <h1>PROJECT TASKS</h1>
+            </div>
+                <div class="add_task">
+                    <input type="text" placeholder="Enter task name" class="input-field1">
+                    <div class="add_task_icon" >
+                        <ion-icon size="large" style="color: #242424; cursor: pointer; "   name="add-circle-outline" id="task_form"></ion-icon>
+                    </div>
+                </div>
+                <div class="all-tasks">
+                    <div class="field_group">
+                       <div class="input_field">
+                         <p>Task 1</p>
+                         <div class="icons_image">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <ion-icon size="large" name="trash-outline"></ion-icon>
+                           
+                         </div>     
+                       </div>
+                    </div>
+                       <div class="field_group">
+                       <div class="input_field">
+                         <p>Task 1</p>
+                         <div class="icons_image">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <ion-icon size="large" name="trash-outline" id ="task_delete"></ion-icon>
+                         </div>     
+                       </div>
+                    </div>
+                    <div class="field_group">
+                        <div class="input_field">
+                          <p>Task 1</p>
+                          <div class="icons_image">
+                             <input type="checkbox" name="checkbox" id="checkbox">
+                             <ion-icon size="large" name="trash-outline"></ion-icon>
+                          </div>     
+                        </div>
+                     </div>
+                     <div class="allbtn1">
+                        <button class="alldone1">All DONE</button>
+                     </div>
+                </div>
+                 </div>
+    </div>
+       
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      
+<script src="../admin-js/dist/user.js"></script>
+</body>
+</html>

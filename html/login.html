@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-tracker | Login</title>
+    <!-- <script type="text/javascript">
+        function disableBack() {
+            window.history.();
+        }
+        setTimeout("disableBack()",0);
+        window.onunload = function(){null}
+
+    </script> -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+         <div class="signup-container">
+            <div class="signup-title-div"><p>Login</p></div>
+            <div class="signup-login-div">
+                <div class="login-div" style="background-color: var(--primary-blue);color:white"><p>Login</p></div>
+                <div class="signup-div"style="background-color: var(--light-gray); border-radius:30px; color:black "><a href="/html/signup.html" style="color:black;text-decoration: none;"><p></p>Signup</p></a> </div>
+            </div>
+            <div class="signup-form">
+                <form action=" ">
+                    <!-- <label for="email">Email </label><br> -->
+                    <input type="text" id="email" placeholder="User Name"><br>
+                    <span class="error-msg">Email address cannot be empty</span>
+                    <!--  <label for="email">Password </label><br> --> 
+                    <input type="password" id="Password" placeholder="Password"><br>
+                    <span class="error-msg">Password  cannot be empty</span>
+                    <!-- <label for="email">Confirm Password </label><br> -->
+                    <div class="forgot-password"><a href="./reset-password.html"style="text-decoration: none;">Forgot Password?</a></div><br>
+                       <div class="login-btns-div">             
+                    <input type="button" id="Login"  value="Login ">
+                    <!-- <input type="button" id="Login-admin"  value="Login as admin"> -->
+                </div>  
+                </form>
+            </div>
+            <div class="login-footer">
+                <p>Not a member?</p>
+                <a href="/html/signup.html" style="text-decoration: none;">Sign up now</a>
+            </div>
+
+         </div> 
+         <script src="../admin-js/dist/login.js"></script>
+</body>
+</html>

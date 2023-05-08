@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "userEmail": "admin",
+      "password": "password",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "userEmail": "user",
+      "password": "user",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "userEmail": "omolo",
+      "password": "omolo",
+      "role": "user",
+      "id": 6
+    }
+  ],
+  "projects": [
+    {
+      "projectName": "proje",
+      "userAssigned": "",
+      "progress": "Completed",
+      "description": "lorem ",
+      "id": 1
+    },
+    {
+      "projectName": "projectName",
+      "userAssigned": "allan",
+      "progress": "",
+      "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+      "id": 2
+    },
+    {
+      "projectName": "hsdjhxd",
+      "userAssigned": "user",
+      "progress": "In Progress",
+      "description": "look here ",
+      "id": 3
+    },
+    {
+      "projectName": "user ",
+      "userAssigned": "omolo",
+      "progress": "",
+      "description": "desc",
+      "id": 4
+    }
+  ],
+  "tasks": [
+    {
+      "taskName": "saCda",
+      "userAssigned": "user1",
+      "id": 1
+    },
+    {
+      "taskName": "ascda",
+      "userAssigned": "user.com",
+      "id": 2
+    },
+    {
+      "taskName": "ujaxd",
+      "userAssigned": "user.com",
+      "id": 3
+    },
+    {
+      "taskName": "wqqa",
+      "userAssigned": "ondieki",
+      "id": 4
+    }
+  ]
+}
